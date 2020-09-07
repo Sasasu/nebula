@@ -1,0 +1,17 @@
+name: third party build
+
+on: workflow_dispatch
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-16.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+
+    - name: install dependency
+      run: apt -y install git
+
+    - name: build third party
+      run: bash third-party/build-third-party.sh
+
